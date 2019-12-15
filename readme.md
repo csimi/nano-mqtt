@@ -78,6 +78,9 @@ nano.on('disconnected', () => {
 
 Emitted after receiving a `PUBLISH` packet.
 
+* topic `<string>`
+* payload `<string>`
+
 ```
 nano.on('message', (topic, payload) => {
 	console.log('received message', topic, payload);
@@ -88,8 +91,11 @@ nano.on('message', (topic, payload) => {
 
 Emitted when a packet has been generated and is ready to be sent.
 
+* packet `<Uint8Array>`
+* type `<number>`
+
 ```
-nano.on('data', (packet) => {
+nano.on('data', (packet, type) => {
 	console.log('packet has been generated');
 	socket.send(packet);
 })
@@ -98,6 +104,8 @@ nano.on('data', (packet) => {
 ## Event: 'error'
 
 Emitted when trying to parse an unknown packet.
+
+* packet `<Uint8Array>`
 
 ```
 nano.on('error', (packet) => {
@@ -119,10 +127,10 @@ Generates and emits a `CONNECT` packet.
 
 Generates and emits a `DISCONNECT` packet.
 
-## publish(topic, message, retain)
+## publish(topic, payload, retain)
 
 * topic `<string>`
-* message `<string>`
+* payload `<string>`
 * retain `<boolean>`
 
 Generates and emits a `PUBLISH` packet. Retain is false by default.
@@ -134,6 +142,8 @@ Generates and emits a `PUBLISH` packet. Retain is false by default.
 Generates and emits a `SUBSCRIBE` packet.
 
 ## parse(data)
+
+* data `<Uint8Array>`
 
 Parses data packet and emits the corresponding event, or `error` on unknown packet type.
 The parsed packet is returned in the format of `[PACKET_INT_TYPE, ...value]`
