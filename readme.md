@@ -1,5 +1,6 @@
 [![npm version](https://img.shields.io/npm/v/nano-mqtt.svg?logo=npm)](https://www.npmjs.com/package/nano-mqtt)
 [![build status](https://github.com/csimi/nano-mqtt/workflows/build/badge.svg)](https://github.com/csimi/nano-mqtt/actions)
+[![codecov](https://codecov.io/gh/csimi/nano-mqtt/branch/master/graph/badge.svg)](https://codecov.io/gh/csimi/nano-mqtt)
 
 # About
 
