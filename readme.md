@@ -61,7 +61,7 @@ Emitted after receiving a `CONNACK` packet or `setConnected` was called with tru
 ```
 nano.on('connected', () => {
 	console.log('we are connected to broker');
-})
+});
 ```
 
 ## Event: 'disconnected'
@@ -71,7 +71,7 @@ Emitted after `setConnected` was called with false.
 ```
 nano.on('disconnected', () => {
 	console.log('we have been disconnected from broker');
-})
+});
 ```
 
 ## Event: 'message'
@@ -84,7 +84,7 @@ Emitted after receiving a `PUBLISH` packet.
 ```
 nano.on('message', (topic, payload) => {
 	console.log('received message', topic, payload);
-})
+});
 ```
 
 ## Event: 'data'
@@ -98,7 +98,7 @@ Emitted when a packet has been generated and is ready to be sent.
 nano.on('data', (packet, type) => {
 	console.log('packet has been generated');
 	socket.send(packet);
-})
+});
 ```
 
 ## Event: 'error'
@@ -110,7 +110,7 @@ Emitted when trying to parse an unknown packet.
 ```
 nano.on('error', (packet) => {
 	console.log('unknown packet', packet);
-})
+});
 ```
 
 ## setConnected(isConnected)
