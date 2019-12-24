@@ -44,12 +44,29 @@ const nano = nanoTCP(new nanoMQTT('device-uuid'), '192.168.0.1', 1883);
 
 ## Espruino UDP
 
+### Basic usage with a UDP broker
+
 ```
 const nanoMQTT = require('nano-mqtt/lib');
 const nanoUDP = require(nano-mqtt/lib/adapter/espruino-udp');
 
-const isBroadcast = true;
-const nano = nanoUDP(new nanoMQTT('device-uuid'), '192.168.0.255', 1883, isBroadcast);
+const broadcast = true; // if we do not know the exact ip address of the broker
+const nano = nanoUDP(
+	new nanoMQTT('device-uuid'),
+	broadcast ? '192.168.0.255' : '192.168.0.1',
+	1883,
+	broadcast,
+);
+```
+
+### UDP mesh without broker
+
+```
+const nanoMQTT = require('nano-mqtt/lib');
+const nanoUDP = require(nano-mqtt/lib/adapter/espruino-udp');
+
+const broadcast = 1883;
+const nano = nanoUDP(new nanoMQTT('device-uuid'), '192.168.0.255', 1883, broadcast);
 ```
 
 # API
