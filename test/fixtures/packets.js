@@ -46,6 +46,12 @@ const subscribe = mqtt.generate({
 	}],
 });
 
+const suback = mqtt.generate({
+	'cmd': 'suback',
+	'messageId': id,
+	'granted': [0],
+});
+
 const pingreq = mqtt.generate({
 	'cmd': 'pingreq',
 });
@@ -57,5 +63,6 @@ module.exports = {
 	publish,
 	publishRetain,
 	subscribe,
+	suback,
 	pingreq,
 };
