@@ -7,8 +7,6 @@ class DgramServer extends EventEmitter {
 		}
 	}
 	
-	setBroadcast () {}
-	
 	send (...args) {
 		if (typeof args[args.length - 1] === 'function') {
 			args[args.length - 1]();

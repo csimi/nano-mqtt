@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { createSandbox, match } = require('sinon');
+const { createSandbox } = require('sinon');
 const proxyquire = require('proxyquire');
 const dgram = require('dgram');
 const { dgramServer, createSocket } = require('../mocks/dgram');
@@ -80,7 +80,6 @@ describe('adapter/espruino-udp', () => {
 		beforeEach(() => {
 			sandbox.stub(dgramServer, 'bind').callThrough();
 			sandbox.stub(dgramServer, 'send').callThrough();
-			sandbox.stub(dgramServer, 'setBroadcast');
 			sandbox.stub(dgramServer, 'close');
 			sandbox.stub(dgramServer, 'on');
 			sandbox.stub(dgramServer, 'removeListener');
@@ -93,28 +92,19 @@ describe('adapter/espruino-udp', () => {
 		it('binds to random port ands sets broadcast if broadcast is true', () => {
 			nanoUDPStub(nano, '127.0.0.1', 1883, true);
 			
-			return (
-				expect(dgramServer.bind).to.have.been.calledOnceWith(0, match.func) &&
-				expect(dgramServer.setBroadcast).to.have.been.calledOnceWith(true)
-			);
+			return expect(dgramServer.bind).to.have.been.calledOnceWith(0);
 		});
 		
 		it('binds to random port if broadcast is not a number', () => {
 			nanoUDPStub(nano, '127.0.0.1', 1883);
 			
-			return (
-				expect(dgramServer.bind).to.have.been.calledOnceWith(0, match.func) &&
-				expect(dgramServer.setBroadcast).to.have.been.calledOnceWith(false)
-			);
+			return expect(dgramServer.bind).to.have.been.calledOnceWith(0);
 		});
 		
 		it('binds to defined port ands sets broadcast if broadcast is a number', () => {
 			nanoUDPStub(nano, '127.0.0.1', 1883, 1883);
 			
-			return (
-				expect(dgramServer.bind).to.have.been.calledOnceWith(1883, match.func) &&
-				expect(dgramServer.setBroadcast).to.have.been.calledOnceWith(true)
-			);
+			return expect(dgramServer.bind).to.have.been.calledOnceWith(1883);
 		});
 		
 		it('closes the server on disconnect', async () => {
