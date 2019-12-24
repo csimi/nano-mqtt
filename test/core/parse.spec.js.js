@@ -43,6 +43,14 @@ describe('parse', () => {
 		return expect(spy).to.have.been.calledOnce;
 	});
 	
+	it('parses and ignores suback packet', () => {
+		nano.on('error', spy);
+		
+		nano.parse(packets.suback);
+		
+		return expect(spy).to.not.have.been.called;
+	});
+	
 	it('emits unknown packet as error', () => {
 		const data = Buffer.from([1337]);
 		nano.on('error', spy);
