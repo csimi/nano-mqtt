@@ -89,12 +89,6 @@ describe('adapter/espruino-udp', () => {
 			sandbox.restore();
 		});
 		
-		it('binds to random port ands sets broadcast if broadcast is true', () => {
-			nanoUDPStub(nano, '127.0.0.1', 1883, true);
-			
-			return expect(dgramServer.bind).to.have.been.calledOnceWith(0);
-		});
-		
 		it('binds to random port if broadcast is not a number', () => {
 			nanoUDPStub(nano, '127.0.0.1', 1883);
 			
