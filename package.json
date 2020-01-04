@@ -22,7 +22,7 @@
     "chai": "^4.2.0",
     "cross-env": "^6.0.3",
     "eslint": "^6.7.2",
-    "mocha": "^6.2.2",
+    "mocha": "^7.0.0",
     "mqtt-packet": "^6.3.0",
     "nyc": "^15.0.0",
     "proxyquire": "^2.1.3",
