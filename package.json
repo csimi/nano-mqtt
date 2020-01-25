@@ -20,7 +20,7 @@
     "@csimi/eslint-config": "^2.0.0",
     "buffer-to-uint8array": "^1.1.0",
     "chai": "^4.2.0",
-    "cross-env": "^6.0.3",
+    "cross-env": "^7.0.0",
     "eslint": "^6.7.2",
     "mocha": "^7.0.0",
     "mqtt-packet": "^6.3.0",
