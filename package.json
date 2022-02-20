@@ -1,6 +1,6 @@
 {
   "name": "nano-mqtt",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Nano-sized MQTT client intended but not limited to be used on Espruino",
   "main": "index.js",
   "scripts": {
@@ -36,7 +36,9 @@
   ],
   "keywords": [
     "mqtt",
+    "client",
     "espruino",
+    "tcp",
     "udp"
   ]
 }
