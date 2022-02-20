@@ -17,11 +17,11 @@
     "url": "git@github.com:csimi/nano-mqtt.git"
   },
   "devDependencies": {
-    "@csimi/eslint-config": "^2.0.0",
+    "@csimi/eslint-config": "^3.0.0",
     "buffer-to-uint8array": "^1.1.0",
     "chai": "^4.2.0",
     "cross-env": "^6.0.3",
-    "eslint": "^6.7.2",
+    "eslint": "^7.32.0",
     "mocha": "^6.2.2",
     "mqtt-packet": "^6.3.0",
     "nyc": "^14.1.1",
