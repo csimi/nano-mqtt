@@ -39,7 +39,13 @@ const nano = new nanoMQTT('device-uuid');
 const nanoMQTT = require('nano-mqtt/lib');
 const nanoTCP = require('nano-mqtt/lib/adapter/espruino-tcp');
 
-const nano = nanoTCP(new nanoMQTT('device-uuid'), '192.168.0.1', 1883);
+const nano = nanoTCP(
+	new nanoMQTT('device-uuid'),
+	'192.168.0.1',
+	1883,
+	10000, // connection timeout
+	5000, // retry delay
+);
 ```
 
 ## Espruino UDP
